@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h5>Premium Shows</h5>
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+    <div class="table-responsive-sm table-striped">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Thumbnail</th>
+                    <th scope="col">Show</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for premium in premium_feed %}
+                <tr>
+                    <td>
+                        <img src="{{premium.show.get_show_image_url}}" alt="..." width="124" height="124">
+                    </td>
+                    <td>
+                        <a href="">{{premium.show.show_name}}</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'unsubscribe' pk_id=premium.show.id %}">Unsubscribe From Show</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>
+    </div>
+</main>
+{% endblock %}

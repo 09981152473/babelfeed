@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h4>Show Details Page</h4>
+<a href="{% url 'feed' pk_id=show.id %}">Rss Feed</a>
+<br>
+<a href="{% url 'show_metric' pk_id=show.id %}">Show Metrics</a>
+<br>
+<a href="{{show_site}}">Website</a>
+<br>
+<img src="{{show.get_absolute_image_url}}" alt="..." width="124" height="124">
+<br>
+{% for ep in episode %}
+    <a href="{% url 'manage_episode_detail' pk_id=ep.id %}">{{ep.name}}</a>
+    <br>
+{% endfor %}
+<a href="{% url 'manage_episode_create' pk_id=show.id %}">Create a new episode!</a>
+<br>
+<a href="{{edit_show_site}}">Edit Website</a>
+<br>
+<a href="{% url 'manage_show_edit' pk=show.id %}">Edit Show!</a>
+<br>
+<a href="{% url 'manage_show_delete' pk_id=show.id %}">Delete Show!</a>
+{% endblock %}

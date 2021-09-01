@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h3>Episode Details</h4>
+<h5>{{episode.episode_name}}</h5>
+<p>
+    {{episode.description}}
+</p>
+{{episode.audio}}
+<br>
+<a href="{% url 'manage_episode_edit' pk=episode.id %}">Edit Episode!</a>
+<br>
+<a href="{% url 'manage_episode_delete' pk_id=episode.id %}">Delete Episode!</a>
+
+
+{% endblock %}

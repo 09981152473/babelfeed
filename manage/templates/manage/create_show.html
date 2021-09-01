@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h4>Create Show</h4>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col align-self-center">
+                <div class="list-group" id="list-tab" role="tablist">
+
+                    <a class="" id="list-show-name-list" data-toggle="list" href="#list-show-name" role="tab">
+                        <label for="{{ form.show_name.id_for_label }}">Show Name</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper">
+                        {{ form.show_name.errors }}
+                        {{ form.show_name }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-show-description-list" data-toggle="list" href="#list-show-description" role="tab">
+                        <label for="{{ form.description.id_for_label }}">Show Summary</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper">
+                            {{ form.description.errors }}
+                            {{ form.description }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-show-summary-list" data-toggle="list" href="#list-show-summary" role="tab">
+                        <label for="{{ form.summary.id_for_label }}">Show Language</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                            {{ form.summary.errors }}
+                            {{ form.summary }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-language-list" data-toggle="list" href="#list-language" role="tab">
+                        <label for="{{ form.language.id_for_label }}">Show Language</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                            {{ form.language.errors }}
+                            {{ form.language }}
+                    </div>
+                    <br>
+
+
+                    <a class="" id="list-author-list" data-toggle="list" href="#list-author" role="tab">
+                        <label for="{{ form.author.id_for_label }}">Show Author</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.author.errors }}
+                        {{ form.author }}
+                    </div>
+                    <br>
+
+
+
+                    <a class="" id="list-copyright-list" data-toggle="list" href="#list-copyright" role="tab">
+                        <label for="{{ form.copyright.id_for_label }}">Show Copyright</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.copyright.errors }}
+                        {{ form.copyright }}
+                    </div>
+                    <br>
+
+
+                     <a class="" id="list-icon-list" data-toggle="list" href="#list-icon" role="tab">
+                        <label for="{{ form.icon.id_for_label }}">Show Icon</label>
+                         <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper">
+                        {{ form.icon.errors }}
+                        {{ form.icon }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-category-list" data-toggle="list" href="#list-category" role="tab">
+                        <label for="{{ form.category.id_for_label }}">Show Category</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.category.errors }}
+                        {{ form.category }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-explict-list" data-toggle="list" href="#list-explict" role="tab">
+                        <label for="{{ form.explict_rating.id_for_label }}">Explicit Rating</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.explict_rating.errors }}
+                        {{ form.explict_rating }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-premium-list" data-toggle="list" href="#list-premium" role="tab">
+                        <label for="{{ form.premium_feed.id_for_label }}">Premium Feed?</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.premium_feed.errors }}
+                        {{ form.premium_feed }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-type-list" data-toggle="list" href="#list-type" role="tab">
+                        <label for="{{ form.show_type.id_for_label }}">Show Type</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.show_type.errors }}
+                        {{ form.show_type }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-contact-name-list" data-toggle="list" href="#list-contact-name" role="tab">
+                        <label for="{{ form.contact_show_name.id_for_label }}">Contact Name</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.contact_show_name.errors }}
+                        {{ form.contact_show_name }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-contact-email-list" data-toggle="list" href="#list-contact-email" role="tab">
+                        <label for="{{ form.contact_show_email.id_for_label }}">Contact Email</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.contact_show_email.errors }}
+                        {{ form.contact_show_email }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-facebook-list" data-toggle="list" href="#list-facebook" role="tab">
+                        <label for="{{ form.facebook_username.id_for_label }}">Facebook Username</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.facebook_username.errors }}
+                        {{ form.facebook_username }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-twitter-list" data-toggle="list" href="#list-twitter" role="tab">
+                        <label for="{{ form.twitter_username.id_for_label }}">Twitter Username</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.twitter_username.errors }}
+                        {{ form.twitter_username }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-insta-list" data-toggle="list" href="#list-insta" role="tab">
+                        <label for="{{ form.instagram_username.id_for_label }}">Instagram Username</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                      <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.instagram_username.errors }}
+                        {{ form.instagram_username }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-tiktok-list" data-toggle="list" href="#list-tiktok" role="tab">
+                        <label for="{{ form.tiktok_username.id_for_label }}">Tik-Tok Username</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.tiktok_username.errors }}
+                        {{ form.tiktok_username }}
+                    </div>
+                    <br>
+
+                    <a class="" id="list-youtube-list" data-toggle="list" href="#list-youtube" role="tab">
+                        <label for="{{ form.youtube_username.id_for_label }}">YouTube Channel</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.youtube_username.errors }}
+                        {{ form.youtube_username }}
+                    </div>
+                    <br>
+
+                    <a class="active" id="list-reddit-list" data-toggle="list" href="#list-reddit" role="tab">
+                        <label for="{{ form.reddit_username.id_for_label }}">Reddit Username</label>
+                        <img src="../../static/manage/img/info-circle-fill.svg" alt="Tips for naming show." width="16" height="16">
+                    </a>
+                    <div class="fieldWrapper" onclick="displayTipPanel()">
+                        {{ form.reddit_username.errors }}
+                        {{ form.reddit_username }}
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="sticky-top">
+                    <br>
+                    <br>
+                    <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade" id="list-show-name" role="tabpanel">
+                        {% include 'show_name.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-show-description" role="tabpanel">
+                        {% include 'show_description.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-show-summary" role="tabpanel">
+                        {% include 'show_summary.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-language" role="tabpanel">
+                        {% include 'show_language.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-author" role="tabpanel">
+                        {% include 'show_author.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-copyright" role="tabpanel">
+                        {% include 'show_copyright.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-icon" role="tabpanel">
+                        {% include 'show_icon.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-category" role="tabpanel">
+                        {% include 'show_category.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-explict" role="tabpanel">
+                        {% include 'show_explcit.html' %}
+                    </div>
+
+                    <div class="tab-pane fade" id="list-premium" role="tabpanel">
+                        {% include 'show_premium_feed.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-type" role="tabpanel">
+                        {% include 'show_show_type.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-contact-name" role="tabpanel">
+                        {% include 'show_contact_name.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-contact-email" role="tabpanel">
+                        {% include 'show_email.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-facebook" role="tabpanel">
+                        {% include 'show_facebook.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-twitter" role="tabpanel">
+                        {% include 'show_twitter.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-insta" role="tabpanel">
+                        {% include 'show_instagram.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-tiktok" role="tabpanel">
+                        {% include 'show_tiktok.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-youtube" role="tabpanel">
+                        {% include 'show_youtube.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="list-reddit" role="tabpanel">
+                        {% include 'show_reddit.html' %}
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <button>Submit Show</button>
+        <br>
+        <br>
+
+    </form>
+
+
+
+{% endblock %}
