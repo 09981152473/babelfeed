@@ -42,16 +42,16 @@ TODO:
 #### Accounts
 This app contains the logic around logging in, registering users, and automatically generating a profile model. 
 
-### Content
+#### Content
 This app handles pulling the content from the aws 
 
 #### Manage
 This app is where the logic and models for shows and episodes are kept. 
 
-### Metrics Dashboard
+#### Metrics Dashboard
 This app displays the metrics for a user's shows and episodes.
 
-### Shows Frontend
+#### Shows Frontend
 This app displays the frontend for a particular show, including all the episodes and webplayer.
 
 
@@ -63,5 +63,5 @@ use the platform.
 This is a placeholder for now. Users will be able to read articles about podcasting, including news and tips to 
 grow their shows.
 
-### Payment
+#### Payment
 This is a placeholder for stripe integration so that we can monitize this platform.
