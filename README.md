@@ -4,7 +4,7 @@ Website: www.babelfeed.com/
 
 Test Account
 
-User Name:  testuser
+User Name:  testuser1
 
 Password:   testpassword1
 
