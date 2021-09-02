@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{base_episode_url}}</title>
+    <link>{{show_frontend}}</link>
+    <language>{{show.language}}</language>
+    <copyright>&#169; {{show.copyright}}</copyright>
+    <itunes:author>{{show.author}}</itunes:author>
+    <description>
+      {{show.description}}
+    </description>
+    <itunes:type>{{show.show_type}}</itunes:type>
+    <itunes:owner>
+      <itunes:name>{{show.contact_show_name}}</itunes:name>
+      <itunes:email>{{show.contact_show_email}}</itunes:email>
+    </itunes:owner>
+    <itunes:image href= "{{ show.get_absolute_image_url }}" />
+    <itunes:subtitle>{{show.summary}}</itunes:subtitle>
+    <itunes:summary>{{show.summary}}</itunes:summary>
+    {% if main_category == "" %}
+    <itunes:category text="{{ show.category }}" />
+    {% else %}
+    <itunes:category text="{{ main_category }}">
+      <itunes:category text="{{ sub_category }}"/>
+    </itunes:category>
+    {% endif %}
+    <itunes:explicit>{{show.explict_rating}}</itunes:explicit>
+    {% for episode in episodes %}
+    <item>
+      <itunes:episodeType>{{episode.episode_type}}</itunes:episodeType>
+      <itunes:episode>{{episode.episode_number}}</itunes:episode>
+      <itunes:season>{{episode.season_number}}</itunes:season>
+      <title>{{episode.name}}</title>
+      <itunes:title>{{episode.name}}</itunes:title>
+      <description>
+      <![CDATA[
+          {{episode.description | safe}}
+          <a href="https://www.apple.com">Test Link</a>
+          ]]>
+      </description>
+      <itunes:image href="{{episode.content_path_to_img}}"/>
+      <link>{{show_url|add:episode.get_id_str}}</link>
+      <enclosure url="{{ base_episode_url|add:episode.get_audio_name}}" length="{{episode.bit_size}}" type="audio/mpeg"
+      />
+      <guid isPermalink="false">{{episode.get_id_str}}</guid>
+      <pubDate>{{episode.release_date}}</pubDate>
+      <itunes:duration>{{episode.play_length}}</itunes:duration>
+      <itunes:explicit>{{episode.explict_rating}}</itunes:explicit>
+      <itunes:subtitle>{{episode.summary}}</itunes:subtitle>
+	  <itunes:summary>{{episode.summary}}</itunes:summary>
+      <itunes:author>{{show.author}}</itunes:author>
+    </item>
+    {% endfor %}
+ </channel>
+</rss>

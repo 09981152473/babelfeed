@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+You should subscribe to the show
+<br>
+<a class="btn btn-secondary" href="{% url 'subscribe' pk_id=id %}">Subscribe to Premium Feed :)</a>
+
+
+{% endblock %}
