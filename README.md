@@ -37,6 +37,7 @@ TODO:
   * Heroku hosting security practices
 * Clean up some inconsistent naming patterns
 * Condense some of the apps? (does content and metrics_dashboard need to be separate?)
+* Fix footer's lack of 'stickiness'
 
 ### Apps
 #### Accounts
