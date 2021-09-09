@@ -18,5 +18,7 @@ urlpatterns = [
     
     path('<str:pk_id>/<uuid:ep_id>', show_frontend_views.show_episode_frontend_view, name="show_episode_frontend"),
     path('<str:pk_id>', show_frontend_views.show_frontend, name="show_frontend"),
-    #re_path(r'^(?P<username>.*)', views.index, name="redirect_frontend")
-    ]
+
+    #re_path(r'^(?P<pk_id>.*)', show_frontend_views.show_frontend, name="redirect_frontend")
+
+]

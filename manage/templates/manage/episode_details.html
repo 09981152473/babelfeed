@@ -4,13 +4,14 @@
 <h3>Episode Details</h4>
 <h5>{{episode.episode_name}}</h5>
 <p>
+    Description:
+    <br>
     {{episode.description}}
 </p>
-{{episode.audio}}
 <br>
-<a href="{% url 'manage_episode_edit' pk=episode.id %}">Edit Episode!</a>
+<a class="btn btn-dark mb-2" href="{% url 'manage_episode_edit' pk=episode.id %}">Edit Episode!</a>
 <br>
-<a href="{% url 'manage_episode_delete' pk_id=episode.id %}">Delete Episode!</a>
+<a class="btn btn-dark mb-2" href="{% url 'manage_episode_delete' pk_id=episode.id %}">Delete Episode!</a>
 
 
 {% endblock %}

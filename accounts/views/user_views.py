@@ -1,12 +1,42 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from shows_frontend.views import show_frontend_views
+from manage.models.shows_domain import ShowDomains
+import re
+from django.core.exceptions import ObjectDoesNotExist
 
-
-# Create your views here.
 def landing_view(request):
+    domain = request.META['HTTP_HOST']
+    if "www." in domain:
+        # live deployment
+        #httpys://wwww.  subdomain. babelfeed. com/adsfasdf
+        splitDomainArr = domain.split(".")
+        if len(splitDomainArr) == 4:
+            try:
+                subdomain = splitDomainArr[1]
+                qs = ShowDomains.objects.get_with_subdomain_name(subdomain)
+                return show_frontend_views.show_frontend(request, subdomain)
+            except:
+                return render(request, "access_denied.html") # should redirect to an access denied or show not found page
+        else:
+            # No subdomain has been entered, so we go to the landing page
+            return render(request, "manage/home_page.html")  # should redirect
+    else:
+        # local enviroment
+        splitDomainArr = domain.split(".")
+        if len(splitDomainArr) == 2:
+            try:
+                subdomain = splitDomainArr[0]
+                qs = ShowDomains.objects.get_with_subdomain_name(subdomain)
+                return show_frontend_views.show_frontend(request, subdomain)
+            except:
+                return render(request,
+                              "access_denied.html")  # should redirect to an access denied or show not found page
+        else:
+            # No subdomain has been entered, so we go to the landing page
+            return render(request, "manage/home_page.html")  # should redirect
 
-    return render(request, "manage/home_page.html")
 
 
 def login_view(request):

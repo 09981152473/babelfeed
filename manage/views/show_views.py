@@ -45,7 +45,13 @@ def show_detail(request, pk_id):
     website = ShowDomains.objects.get_with_show_obj(show_context)
 
     edit_show_url = request.build_absolute_uri('/manage/edit_show/' + str(website.id) + "/website")
-    show_url = request.build_absolute_uri('../../show/' + str(website.show_website_name))
+    #show_url = request.build_absolute_uri('../../show/' + str(website.show_website_name))
+    domain = request.META['HTTP_HOST']
+    if "www." in domain:
+        show_url = "http://www." + str(website.show_website_name) + ".babelfeed.com"
+    else:
+        #pass
+        show_url = "http://" +str(website.show_website_name) + ".localhost:8000"
 
     context = {
         "show": show_context,

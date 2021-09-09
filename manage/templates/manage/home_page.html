@@ -12,17 +12,16 @@
 <div class="container">
     <div>
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal">Pricing</h1>
+            <h1 class="display-4 fw-normal">Pricing Plans</h1>
             <p class="fs-5 text-muted">
-                Quickly build an effective pricing table for your potential customers with this Bootstrap example.
-                It’s built with default Bootstrap components and utilities with little customization.
+                Our pricing plans allow you to grow with your show. Get started today for free.
             </p>
         </div>
     <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
+        <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+          <div class="card-header py-3 text-white bg-secondary border-secondary">
             <h4 class="my-0 fw-normal">Free</h4>
           </div>
           <div class="card-body">
@@ -33,13 +32,13 @@
               <li>Email support</li>
               <li>Help center access</li>
             </ul>
-            <a href="{% url 'register' %}" class="btn btn-info" role="button">Sign up for free</a>
+            <a class="btn  btn-secondary mb-2" href="{% url 'register' %}" class="btn btn-info" role="button">Sign up for free</a>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
+        <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+          <div class="card-header py-3 text-white bg-secondary border-secondary">
             <h4 class="my-0 fw-normal">Pro</h4>
           </div>
           <div class="card-body">
@@ -50,13 +49,13 @@
               <li>Priority email support</li>
               <li>Help center access</li>
             </ul>
-            <a href="{% url 'register' %}" class="btn btn-info" role="button">Get started</a>
+            <a class="btn btn-secondary mb-2" href="{% url 'register' %}" class="btn btn-info" role="button">Get started</a>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-white bg-primary border-primary">
+        <div class="card mb-4 rounded-3 shadow-sm border-dark">
+          <div class="card-header py-3 text-white bg-dark border-dark">
             <h4 class="my-0 fw-normal">Enterprise</h4>
           </div>
           <div class="card-body">
@@ -67,7 +66,7 @@
               <li>Phone and email support</li>
               <li>Help center access</li>
             </ul>
-            <a href="{% url 'register' %}" class="btn btn-info" role="button">Contact Us</a>
+            <a class="btn btn-dark mb-2" href="{% url 'register' %}" class="btn btn-info" role="button">Contact Us</a>
           </div>
         </div>
       </div>

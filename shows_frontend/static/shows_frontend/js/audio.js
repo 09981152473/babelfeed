@@ -1,4 +1,6 @@
 function createTrackItem(index,name,duration){
+    // Create an element to contain our track list
+    // Assign it the proper attributes
     var trackItem = document.createElement('div');
     trackItem.setAttribute("class", "playlist-track-ctn");
     trackItem.setAttribute("id", "ptc-"+index);
@@ -30,8 +32,7 @@ function createTrackItem(index,name,duration){
   }
 
 
-  console.log(listAudio)
-
+  // The data about each episode of hte show
   for (var i = 0; i < listAudio.length; i++) {
       createTrackItem(i,listAudio[i].name,listAudio[i].duration);
   }
@@ -49,6 +50,7 @@ function createTrackItem(index,name,duration){
     this.indexAudio = index;
   }
 
+  // grab all the track items we just made so that we can bind a click event to them
   var playListItems = document.querySelectorAll(".playlist-track-ctn");
 
   for (let i = 0; i < playListItems.length; i++){
@@ -59,7 +61,7 @@ function createTrackItem(index,name,duration){
     for (let i = 0; i < playListItems.length; i++){
       if(playListItems[i] == event.target){
         var clickedIndex = event.target.getAttribute("data-index")
-        if (clickedIndex == this.indexAudio ) { // alert('Same audio');
+        if (clickedIndex == this.indexAudio ) {
             this.toggleAudio()
         }else{
             loadNewTrack(clickedIndex);

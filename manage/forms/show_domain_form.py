@@ -4,4 +4,4 @@ from ..models.shows_domain import ShowDomains
 class ShowDomainsForm(ModelForm):
     class Meta:
         model = ShowDomains
-        fields = '__all__'
+        exclude = ['show_fk']

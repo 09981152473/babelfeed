@@ -57,10 +57,12 @@ def show_frontend(request, pk_id):
     Logged in users must be subscribed to the premium feed to veiw the front end of a premium show.
     A list of episodes is passed to the template so that the user can play the podcast with a JS player.
     """
+    print(pk_id)
     show = ShowDomains.objects.get_with_subdomain_name(pk_id).show_fk
-    profile = Profile.objects.get_profile(request.user.id)
     if show.premium_feed:
         if request.user.is_authenticated:
+            profile = Profile.objects.get_profile(request.user.id)
+
             try:
                 PremiumSubscriptions.objects.get_subscription_for_show_for_user(show, profile)
             except ObjectDoesNotExist:
