@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a4)dl+zc^d&&!=8=zgr(wvz7pw+%*@6p0l(dha(t5^bx#_$*$('
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -156,8 +156,8 @@ DEFAULT_FILE_STORAGE = 'manage.classes.customStorage.CustomStorage'
 #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
 
-AWS_ACCESS_KEY_ID = 'AKIA3X3YW32RH3FWA47W'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 AWS_STORAGE_BUCKET_NAME = 'babelcastmedia'
 AWS_S3_REGION_NAME = 'us-east-2'
