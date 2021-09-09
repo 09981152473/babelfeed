@@ -31,7 +31,6 @@ function createTrackItem(index,name,duration){
     
   }
 
-
   // The data about each episode of hte show
   for (var i = 0; i < listAudio.length; i++) {
       createTrackItem(i,listAudio[i].name,listAudio[i].duration);
@@ -50,40 +49,47 @@ function createTrackItem(index,name,duration){
     this.indexAudio = index;
   }
 
-  // grab all the track items we just made so that we can bind a click event to them
-  var playListItems = document.querySelectorAll(".playlist-track-ctn");
+      // grab all the track items we just made so that we can bind a click event to them
+      var playListItems = document.querySelectorAll(".playlist-track-ctn");
 
-  for (let i = 0; i < playListItems.length; i++){
-    playListItems[i].addEventListener("click", getClickedElement.bind(this));
-  }
+      // assign a click even to all the play list items
+      for (let i = 0; i < playListItems.length; i++){
+        playListItems[i].addEventListener("click", getClickedElement.bind(this));
+      }
 
-  function getClickedElement(event) {
-    for (let i = 0; i < playListItems.length; i++){
-      if(playListItems[i] == event.target){
-        var clickedIndex = event.target.getAttribute("data-index")
-        if (clickedIndex == this.indexAudio ) {
-            this.toggleAudio()
-        }else{
-            loadNewTrack(clickedIndex);
+    // add click event on the track listing,
+    // when clicked, audio plays if the track isn't currently playing
+    // or we'll toggle it off if the audio was playing
+      function getClickedElement(event) {
+        for (let i = 0; i < playListItems.length; i++){
+          if(playListItems[i] == event.target){
+            var clickedIndex = event.target.getAttribute("data-index")
+            if (clickedIndex == this.indexAudio ) {
+                this.toggleAudio()
+            }else{
+                loadNewTrack(clickedIndex);
+            }
+          }
         }
       }
-    }
-  }
 
+  // Source-audio is the id for our source element in the audio player
+  // populate with data from the current track
   document.querySelector('#source-audio').src = listAudio[indexAudio].file
   document.querySelector('.title').innerHTML = listAudio[indexAudio].name
 
-
+// load audio element
   var currentAudio = document.getElementById("myAudio");
-
   currentAudio.load()
-  
+
+  // fires when meta data for the audio is loaded
   currentAudio.onloadedmetadata = function() {
         document.getElementsByClassName('duration')[0].innerHTML = this.getMinutes(this.currentAudio.duration)
   }.bind(this);
 
   var interval1;
 
+  // controls playing the audio, pauses audio if it's already playing
   function toggleAudio() {
 
     if (this.currentAudio.paused) {
@@ -100,16 +106,14 @@ function createTrackItem(index,name,duration){
     }
   }
 
+  // assigned to the pause button
   function pauseAudio() {
     this.currentAudio.pause();
     clearInterval(interval1);
   }
 
   var timer = document.getElementsByClassName('timer')[0]
-
   var barProgress = document.getElementById("myBar");
-
-
   var width = 0;
 
   function onTimeUpdate() {
@@ -185,6 +189,8 @@ function createTrackItem(index,name,duration){
     }
   }
 
+// We want to pause and remove an attribute from the current episode
+// We want to play and add an attribute to the new episode we want to play
   function updateStylePlaylist(oldIndex,newIndex){
     document.querySelector('#ptc-'+oldIndex).classList.remove("active-track");
     this.pauseToPlay(oldIndex);
